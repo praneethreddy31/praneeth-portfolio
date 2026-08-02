@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Abstract authorization lab illustration">
+  <rect width="640" height="360" fill="#c4bd92"/>
+  <path d="M0 254C102 178 168 289 278 202s166-36 362-135v293H0Z" fill="#738d79"/>
+  <path d="M0 302c121-81 197-6 305-83s174-8 335-82v223H0Z" fill="#3f6757"/>
+  <rect x="202" y="63" width="236" height="170" rx="14" fill="#edf0d9" stroke="#263e35" stroke-width="10"/>
+  <path d="M237 105h166M237 140h113M237 175h143" stroke="#607b6a" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="469" cy="224" r="49" fill="#db765d"/>
+  <path d="M449 224l13 14 27-35" fill="none" stroke="#fff5df" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Abstract network request lab illustration">
+  <rect width="640" height="360" fill="#d7b87f"/>
+  <path d="M0 244c102-105 198-11 292-100s180-73 348-100v316H0Z" fill="#9da984"/>
+  <path d="M0 314c142-99 194-24 293-84s167-33 347-122v252H0Z" fill="#4d765e"/>
+  <circle cx="191" cy="148" r="55" fill="#fbefd0" stroke="#315f52" stroke-width="10"/>
+  <circle cx="447" cy="192" r="59" fill="#f7e5bd" stroke="#315f52" stroke-width="10"/>
+  <path d="M246 160c53-34 96-9 143 6" fill="none" stroke="#315f52" stroke-width="12" stroke-linecap="round" stroke-dasharray="12 16"/>
+  <path d="m373 146 32 25-39 13" fill="#315f52"/>
+  <path d="M159 149h64M415 192h64" stroke="#315f52" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "sectionTitle": "projects",
+  "items": [
+    {
+      "id": "zeno-ui",
+      "slug": "zeno-ui",
+      "title": "Zeno UI",
+      "summary": "Token-first component system for building clean web interfaces with Tailwind-driven primitives and a theme playground.",
+      "description": "A compact UI library and playground focused on reusable primitives, tokenized styling, and fast theme iteration.",
+      "tech": ["TypeScript", "Tailwind", "React"],
+      "githubUrl": "https://github.com/ohshinbhat/zeno-ui",
+      "liveUrl": "https://zenoui.in",
+      "image": null,
+      "featured": true,
+      "published": true,
+      "sortOrder": 1,
+      "year": 2026,
+      "role": "Engineer / Designer",
+      "status": "Live"
+    },
+    {
+      "id": "recur-obj-model",
+      "slug": "recur-obj-model",
+      "title": "Recur Obj Model",
+      "summary": "A modular video object analytics pipeline for counting unique recurring objects across an entire video, even after scene cuts.",
+      "description": "Built in Python with scene detection, sampled frame processing, YOLOv8n detection, ByteTrack tracking, and CLIP-based re-identification to merge local tracks into persistent global object IDs with analytics export.",
+      "tech": ["Python", "YOLOv8", "ByteTrack", "CLIP", "Computer Vision"],
+      "githubUrl": "https://github.com/ohshinbhat/recur-obj-model",
+      "liveUrl": null,
+      "image": null,
+      "featured": false,
+      "published": true,
+      "sortOrder": 2,
+      "year": 2026,
+      "role": "ML / Vision Engineer",
+      "status": "Prototype"
+    },
+    {
+      "id": "prompt-now",
+      "slug": "prompt-now",
+      "title": "Prompt Now",
+      "summary": "A native macOS menu bar app that brings your last Codex or Claude window back after a timer so review loops do not disappear.",
+      "description": "Built with Swift and SwiftPM as a lightweight menu bar utility, with app bundle, DMG, Homebrew cask, and Mac App Store packaging paths.",
+      "tech": ["Swift", "SwiftPM", "macOS", "Homebrew"],
+      "githubUrl": "https://github.com/ohshinbhat/prompt-now",
+      "liveUrl": null,
+      "image": null,
+      "featured": false,
+      "published": true,
+      "sortOrder": 3,
+      "year": 2026,
+      "role": "macOS Engineer",
+      "status": "Shipped"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+@config "../../tailwind.config.ts";
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --site-nav-height: 72px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: #080b12;
+    color: #f5f7fb;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+  }
+}

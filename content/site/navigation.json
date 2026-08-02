@@ -1,0 +1,14 @@
+[
+  {
+    "key": "about",
+    "label": "abt me",
+    "href": "/#about",
+    "visible": true
+  },
+  {
+    "key": "projects",
+    "label": "work",
+    "href": "/work",
+    "visible": true
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "eyebrow": "open channels",
+  "title": "reach out",
+  "description": "Whether you're looking to collaborate, hire, seek advice, or simply start a conversation, choose the one that best matches your intent.",
+  "lanes": [
+    {
+      "id": "team",
+      "label": "01 / team channel",
+      "title": "Want me on your team?",
+      "description": "For product engineering, design engineering, growth engineering, and fast-moving teams that need someone who can ship products, systems, and distribution with equal attention to quality and speed.",
+      "actions": [
+        {
+          "label": "email me",
+          "href": "https://mail.google.com/mail/?view=cm&fs=1&to=ohshinb%40gmail.com&su=Hiring%20Ohshin"
+        },
+        {
+          "label": "get resume",
+          "href": "/resume.pdf"
+        }
+      ],
+      "segments": [
+        {
+          "title": "Want me on your team?",
+          "description": "For product engineering, design engineering, growth engineering, and fast-moving teams that need someone who can ship products, systems, and distribution with equal attention to quality and speed.",
+          "actions": [
+            {
+              "label": "email me",
+              "href": "https://mail.google.com/mail/?view=cm&fs=1&to=ohshinb%40gmail.com&su=Hiring%20Ohshin"
+            },
+            {
+              "label": "get resume",
+              "href": "/resume.pdf"
+            }
+          ]
+        },
+        {
+          "title": "Ship the idea",
+          "description": "Need help building something, where the idea needs to become a shipped product?",
+          "actions": [
+            {
+              "label": "book a call",
+              "href": "https://cal.com/ohshin/quick-call-ohshin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growth",
+      "label": "02 / growth channel",
+      "title": "Want to work with me?",
+      "description": "I work with founders and startups on distribution, product launches, growth experiments, and community building that turn great products into visible ones.",
+      "actions": [
+        {
+          "label": "book a call",
+          "href": "https://cal.com/ohshin/lets-talk-growth"
+        }
+      ]
+    },
+    {
+      "id": "fun",
+      "label": "03 / fun channel",
+      "title": "Want to send a fun DM?",
+      "description": "For fun banter, strange product ideas, sharing playlist, side quests, or anything that feels like it doesn't belong in an email.",
+      "actions": [
+        {
+          "label": "dm on X",
+          "href": "https://x.com/ohshinbhat"
+        }
+      ]
+    }
+  ]
+}

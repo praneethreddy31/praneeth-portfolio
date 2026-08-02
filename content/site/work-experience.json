@@ -1,0 +1,60 @@
+{
+  "sectionTitle": "Experience",
+  "items": [
+    {
+      "id": "software-development-engineer-dream11",
+      "role": "Software Development Engineer",
+      "company": "Dream11",
+      "periodLabel": "Nov 2024 - Present",
+      "startDate": "2024-11-01",
+      "endDate": null,
+      "summary": "Shipped high-scale frontend features for Dream11’s 250M+ user app, owning product refinements, GraphQL contracts, UI implementation, integrations, releases, and migration work from React Native to Expo.",
+      "highlights": [
+        "Built 8+ end-to-end features with animations, routing, pagination, pull-to-refresh, store, real-time AppSync and socket integrations, and privacy controls impacting 10M+ daily active users",
+        "Shipped MGMR with Expo and Tailcall, handling team creation and animated preview flows while supporting peak concurrency of 200k+ user creates",
+        "Owned GraphQL and Apollo integrations across the Dream11 app, monographQL, and microfrontend surfaces at roughly 1M+ average RPM, simplifying complex subgraphs",
+        "Built custom component libraries with Storybook and a tokens pipeline wired to design output, reducing repetitive styling changes across apps",
+        "Improved code quality and team velocity through cleanups, internal dev tools, profiling, and Retool-based no-code workflows for CMS operations"
+      ],
+      "location": "India",
+      "links": [],
+      "published": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "sde-intern-logitrix",
+      "role": "SDE Intern",
+      "company": "Logitrix",
+      "periodLabel": "Feb 2024 - Jul 2024",
+      "startDate": "2024-02-01",
+      "endDate": "2024-07-31",
+      "summary": "Engineered the frontend of two products from scratch, including RIMS, a medical research dashboard for healthcare clients.",
+      "highlights": [
+        "Built multifunctional web apps for clients including Apollo and DY Patil Hospitals",
+        "Worked with React, Next.js, Tailwind, WebSockets, and Flask",
+        "Shipped production-facing product foundations from zero to usable systems"
+      ],
+      "location": "Remote",
+      "links": [],
+      "published": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "frontend-dev-rewire",
+      "role": "Front-End Dev",
+      "company": "Rewire",
+      "periodLabel": "Sep 2023 - Dec 2023",
+      "startDate": "2023-09-01",
+      "endDate": "2023-12-31",
+      "summary": "Engineered and maintained web experiences for the Rewire app across frontend UI and small REST APIs on user data.",
+      "highlights": [
+        "Worked with React, Next.js, Tailwind CSS, AWS EC2, and Go",
+        "Shipped UI improvements and backend-adjacent API work in a fast-moving product environment"
+      ],
+      "location": "India",
+      "links": [],
+      "published": true,
+      "sortOrder": 3
+    }
+  ]
+}

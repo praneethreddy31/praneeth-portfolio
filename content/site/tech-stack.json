@@ -1,0 +1,104 @@
+{
+  "eyebrow": "stack overload",
+  "title": "tech stack",
+  "description": "Tools I use across product engineering, mobile apps, visual systems, and fast prototypes.",
+  "items": [
+    {
+      "id": "javascript",
+      "label": "Javascript",
+      "group": "language",
+      "accent": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "typescript",
+      "label": "Typescript",
+      "group": "language",
+      "accent": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "react",
+      "label": "ReactJs",
+      "group": "interface",
+      "accent": true,
+      "sortOrder": 3
+    },
+    {
+      "id": "react-native",
+      "label": "React Native",
+      "group": "mobile",
+      "accent": true,
+      "sortOrder": 4
+    },
+    {
+      "id": "expo",
+      "label": "Expo",
+      "group": "mobile",
+      "sortOrder": 5
+    },
+    {
+      "id": "nextjs",
+      "label": "NextJs",
+      "group": "interface",
+      "accent": true,
+      "sortOrder": 6
+    },
+    {
+      "id": "tailwind",
+      "label": "Tailwind",
+      "group": "interface",
+      "sortOrder": 7
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "group": "language",
+      "sortOrder": 8
+    },
+    {
+      "id": "graphql",
+      "label": "GraphQL",
+      "group": "data",
+      "sortOrder": 9
+    },
+    {
+      "id": "aws",
+      "label": "AWS",
+      "group": "platform",
+      "sortOrder": 10
+    },
+    {
+      "id": "figma",
+      "label": "Figma",
+      "group": "design",
+      "accent": true,
+      "sortOrder": 11
+    },
+    {
+      "id": "vite",
+      "label": "Vite",
+      "group": "tooling",
+      "sortOrder": 12
+    },
+    {
+      "id": "framer",
+      "label": "Framer",
+      "group": "motion",
+      "sortOrder": 13
+    },
+    {
+      "id": "spline",
+      "label": "Spline",
+      "group": "creative",
+      "sortOrder": 14
+    },
+    {
+      "id": "github",
+      "label": "Github",
+      "group": "platform",
+      "accent": true,
+      "sortOrder": 15
+    }
+  ]
+}
