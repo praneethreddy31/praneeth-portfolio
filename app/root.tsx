@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { PropsWithChildren } from "react";
+import { Analytics } from "@vercel/analytics/remix";
 import PageViewTracker from "./components/page-view-tracker";
 import appStylesHref from "./styles/tailwind.css?url";
 import portfolioStylesHref from "./styles/portfolio.css?url";
@@ -48,6 +49,7 @@ export function Layout({ children }: PropsWithChildren) {
       </head>
       <body>
         {children}
+        <Analytics />
         <ScrollRestoration />
         <Scripts />
       </body>
