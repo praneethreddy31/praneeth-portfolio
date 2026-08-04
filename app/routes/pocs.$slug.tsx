@@ -66,6 +66,21 @@ function MarkdownReport({ source }: { source: string }) {
       continue;
     }
 
+    if (line === "[[LICIOUS_VULNERABILITY_CHAIN]]") {
+      blocks.push(
+        <figure className="report-evidence" key={`licious-chain-${index}`}>
+          <img
+            src="/images/pocs/licious-security-vulnerability-chain.jpg"
+            alt="Diagram showing the Licious security vulnerability chain from exposed internal services to customer profiles"
+            loading="lazy"
+          />
+          <figcaption>Overview of the patched vulnerability chain documented in this report.</figcaption>
+        </figure>
+      );
+      index += 1;
+      continue;
+    }
+
     if (line.startsWith("```")) {
       const language = line.slice(3);
       const code: string[] = [];
