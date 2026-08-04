@@ -138,6 +138,21 @@ const articles = [
     previewHeadline: "Notes on technology and systems",
     previewTag: "Blog",
   },
+  {
+    kind: "ARTICLE",
+    source: "0xDBGMan",
+    title: "Inside the Falcon: How CrowdStrike Catches You",
+    date: "Read article",
+    tags: ["Cybersecurity", "Threat Intel"],
+    href: "https://0xdbgman.github.io/posts/inside-the-falcon-how-crowdstrike-catches-you/",
+    excerpt:
+      "A technical look inside CrowdStrike Falcon and the signals defenders use to detect an attacker in motion.",
+    media: "site",
+    previewBrand: "0xDBGMan",
+    previewDomain: "0xdbgman.github.io",
+    previewHeadline: "Inside the Falcon: How CrowdStrike Catches You",
+    previewTag: "Threat research",
+  },
 ];
 const movies = [
   {
@@ -285,11 +300,11 @@ const xAccounts = [
     href: "https://x.com/the2ndfloorguy",
   },
   {
-    handle: "@gow88",
+    handle: "@gow88_",
     name: "Gowtham Oleti",
     category: "DESIGN",
     note: "Thoughtful web design, interaction, and visual craft.",
-    href: "https://x.com/gow88",
+    href: "https://x.com/gow88_",
   },
   {
     handle: "@mannupaaji",
@@ -415,6 +430,15 @@ const disclosureCompanies = [
 ];
 const pocs = [
   {
+    slug: "licious-supply-chain-disclosure",
+    image: "/images/poc-logos/licious-logo.png",
+    logo: true,
+    comingSoon: false,
+    company: "Licious",
+    issue:
+      "A public supply-chain trust failure that exposed data tied to 5M+ users.",
+  },
+  {
     slug: "tgsrtc-booking-portal-disclosure",
     image: "/images/poc-logos/tgsrtc-logo.webp",
     logo: true,
@@ -423,52 +447,44 @@ const pocs = [
     issue:
       "How a ₹1 checkout exposed failures across payment integrity and passenger-data access.",
   },
-  {
-    slug: "licious-supply-chain-disclosure",
-    image: "/images/poc-logos/licious-logo.png",
-    logo: true,
-    comingSoon: true,
-    company: "Licious",
-    issue: "A public supply-chain trust failure that exposed data tied to 5M+ users.",
-  },
 ];
 const photos = [
   {
     id: "photo-01",
-    image: "/images/photos/photo-01.jpeg",
+    image: "/images/photos/photo-01.jpg",
     position: { top: "7%", left: "7%" },
     rotate: -6,
   },
   {
     id: "photo-02",
-    image: "/images/photos/photo-02.jpeg",
+    image: "/images/photos/photo-02.jpg",
     position: { top: "38%", left: "18%" },
     rotate: -8,
   },
   {
     id: "photo-03",
-    image: "/images/photos/photo-03.jpeg",
+    image: "/images/photos/photo-03.jpg",
     position: { top: "5%", left: "39%" },
     rotate: 7,
   },
   {
     id: "photo-04",
-    image: "/images/photos/photo-04.jpeg",
+    image: "/images/photos/photo-04.jpg",
     position: { top: "33%", left: "55%" },
     rotate: 9,
   },
   {
     id: "photo-05",
-    image: "/images/photos/photo-05.jpeg",
+    image: "/images/photos/photo-05.jpg",
     position: { top: "13%", right: "8%" },
     rotate: 2,
   },
-  { id: "photo-06", image: "/images/photos/photo-06.jpeg", position: { top: "56%", left: "5%" }, rotate: 5 },
-  { id: "photo-07", image: "/images/photos/photo-07.jpeg", position: { top: "61%", left: "31%" }, rotate: -4 },
-  { id: "photo-08", image: "/images/photos/photo-08.jpeg", position: { top: "54%", left: "52%" }, rotate: 6 },
-  { id: "photo-09", image: "/images/photos/photo-09.jpeg", position: { top: "65%", right: "8%" }, rotate: -7 },
-  { id: "photo-10", image: "/images/photos/photo-10.jpeg", position: { top: "80%", left: "20%" }, rotate: 4 },
-  { id: "photo-11", image: "/images/photos/photo-11.jpeg", position: { top: "81%", right: "24%" }, rotate: -3 },
+  { id: "photo-06", image: "/images/photos/photo-06.jpg", position: { top: "56%", left: "5%" }, rotate: 5 },
+  { id: "photo-07", image: "/images/photos/photo-07.jpg", position: { top: "61%", left: "31%" }, rotate: -4 },
+  { id: "photo-08", image: "/images/photos/photo-08.jpg", position: { top: "54%", left: "52%" }, rotate: 6 },
+  { id: "photo-09", image: "/images/photos/photo-09.jpg", position: { top: "65%", right: "8%" }, rotate: -7 },
+  { id: "photo-10", image: "/images/photos/photo-10.jpg", position: { top: "80%", left: "20%" }, rotate: 4 },
+  { id: "photo-11", image: "/images/photos/photo-11.jpg", position: { top: "81%", right: "24%" }, rotate: -3 },
 ];
 const scrollScenes = [
   "about",

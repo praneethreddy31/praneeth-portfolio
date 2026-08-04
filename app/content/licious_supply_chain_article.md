@@ -22,6 +22,8 @@ No login was required at any step. The entire chain worked from a web browser or
 
 All vulnerabilities were reported and patched within 72 hours.
 
+[[LICIOUS_VULNERABILITY_CHAIN]]
+
 ---
 
 ## The Discovery
