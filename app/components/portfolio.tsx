@@ -842,6 +842,12 @@ export default function Portfolio({
             ))}
           </div>
           <p className="more-pocs-note">MORE POCs SOON</p>
+          <a className="cyber-report-feature" href="/pocs/licious-disclosure-timeline">
+            <span className="cyber-report-feature-kicker">DISCLOSURE TIMELINE · LICIOUS</span>
+            <strong>They Called It Unreproducible. Then They Patched It.</strong>
+            <span className="cyber-report-feature-copy">A documented V1, V2, and V3 supply-chain disclosure with redacted email evidence, remediation checks, and the final bounty decision.</span>
+            <span className="cyber-report-feature-action">Read the report <FaArrowRight /></span>
+          </a>
           <p className="bug-bounty-caption">BUG BOUNTY / PATCHED FLAWS IN</p>
           <div
             className="disclosure-logo-cloud"

@@ -2,11 +2,13 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link, useParams } from "@remix-run/react";
 import { FaArrowLeft } from "react-icons/fa6";
 import liciousReport from "../content/licious_supply_chain_article.md?raw";
+import liciousTimelineReport from "../content/licious_disclosure_timeline.md?raw";
 import tgsrtcReport from "../content/tgsrtc_booking_portal_report.md?raw";
 import { tgsrtcPaymentEvidence } from "../content/tgsrtc_evidence";
 import { tgsrtcConfigEvidence } from "../content/tgsrtc_config_evidence";
 
 const reportSlug = "licious-supply-chain-disclosure";
+const liciousTimelineSlug = "licious-disclosure-timeline";
 const tgsrtcSlug = "tgsrtc-booking-portal-disclosure";
 
 function formatInline(value: string) {
@@ -75,6 +77,40 @@ function MarkdownReport({ source }: { source: string }) {
             loading="lazy"
           />
           <figcaption>Overview of the patched vulnerability chain documented in this report.</figcaption>
+        </figure>
+      );
+      index += 1;
+      continue;
+    }
+
+    const timelineEvidence: Record<string, { src: string; alt: string; caption: string }> = {
+      "[[LICIOUS_TIMELINE_INITIAL]]": {
+        src: "/images/pocs/licious-evidence/v1-v2-initial-response.png",
+        alt: "Licious security response calling V1 a duplicate and V2 and V3 not reproducible",
+        caption: "Initial triage response dated July 13, 2026. Sensitive account details are not shown.",
+      },
+      "[[LICIOUS_TIMELINE_REMEDIATION]]": {
+        src: "/images/pocs/licious-evidence/remediation-evidence.png",
+        alt: "Redacted remediation evidence showing DNS, HTTP, and JavaScript bundle changes",
+        caption: "Post-report remediation checks recorded on July 13, 2026.",
+      },
+      "[[LICIOUS_TIMELINE_SUMMARY]]": {
+        src: "/images/pocs/licious-evidence/researcher-summary.png",
+        alt: "Redacted researcher summary describing the combined supply-chain impact",
+        caption: "Researcher summary explaining the shared trust-boundary failure across V1, V2, and V3.",
+      },
+      "[[LICIOUS_TIMELINE_BOUNTY]]": {
+        src: "/images/pocs/licious-evidence/bounty-response.png",
+        alt: "Redacted Licious response describing the bounty cap and supply-chain impact",
+        caption: "Final bounty response acknowledging the supply-chain impact and ₹15,000 program cap.",
+      },
+    };
+    if (timelineEvidence[line]) {
+      const evidence = timelineEvidence[line];
+      blocks.push(
+        <figure className="report-evidence timeline-evidence" key={`${line}-${index}`}>
+          <img src={evidence.src} alt={evidence.alt} loading="lazy" />
+          <figcaption>{evidence.caption}</figcaption>
         </figure>
       );
       index += 1;
@@ -201,6 +237,8 @@ export const meta: MetaFunction = ({ params }) => [
     title:
       params.slug === reportSlug
         ? "Licious Supply-chain Disclosure — Praneeth Reddy"
+        : params.slug === liciousTimelineSlug
+          ? "They Called It Unreproducible — Praneeth Reddy"
         : params.slug === tgsrtcSlug
           ? "TGSRTC Booking Portal Disclosure — Praneeth Reddy"
         : "POC not found — Praneeth Reddy",
@@ -210,7 +248,7 @@ export const meta: MetaFunction = ({ params }) => [
 export default function PocDetail() {
   const { slug } = useParams();
 
-  if (slug !== reportSlug && slug !== tgsrtcSlug) {
+  if (slug !== reportSlug && slug !== liciousTimelineSlug && slug !== tgsrtcSlug) {
     return (
       <main className="poc-page">
         <section className="poc-shell">
@@ -223,7 +261,11 @@ export default function PocDetail() {
     );
   }
 
-  const report = slug === tgsrtcSlug ? tgsrtcReport : liciousReport;
+  const report = slug === tgsrtcSlug
+    ? tgsrtcReport
+    : slug === liciousTimelineSlug
+      ? liciousTimelineReport
+      : liciousReport;
 
   return (
     <main className="poc-page">
@@ -231,6 +273,17 @@ export default function PocDetail() {
         <Link to="/#cyber" className="poc-back">
           <FaArrowLeft /> Back to research
         </Link>
+        {(slug === reportSlug || slug === liciousTimelineSlug) && (
+          <div className="poc-brand-mark" aria-label="Licious">
+            <img
+              src="/images/poc-logos/licious-logo.png"
+              alt="Licious"
+              width="150"
+              height="55"
+              loading="eager"
+            />
+          </div>
+        )}
         <MarkdownReport source={report} />
       </article>
     </main>
