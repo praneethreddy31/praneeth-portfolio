@@ -50,6 +50,21 @@ const _projects = [
 ];
 const articles = [
   {
+    kind: "PDF",
+    source: "Philip Kiely",
+    title: "Inference Engineering",
+    date: "Open PDF",
+    tags: ["AI", "Engineering"],
+    href: "/documents/inference-engineering.pdf",
+    excerpt:
+      "A practical guide to building reliable, production-ready inference systems.",
+    media: "site",
+    previewBrand: "Inference Engineering",
+    previewDomain: "PDF · 259 pages",
+    previewHeadline: "A guide to production inference systems",
+    previewTag: "Open PDF",
+  },
+  {
     kind: "ARTICLE",
     source: "Elastic Security Labs",
     title:
