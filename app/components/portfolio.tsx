@@ -12,10 +12,10 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { FloatingDock } from "./ui/floating-dock";
-import { CardBody, CardContainer, CardItem } from "./ui/three-d-card";
-import { StatefulButton } from "./ui/stateful-button";
 import { DraggableCardBody, DraggableCardContainer } from "./ui/draggable-card";
 import { FollowerPointerCard } from "./ui/following-pointer";
+import { LogosCarousel } from "./ui/logos-carousel";
+import { Signature } from "./ui/signature";
 import type { LetterboxdEntry } from "../lib/letterboxd.server";
 
 const _projects = [
@@ -367,83 +367,75 @@ const xAccounts = [
 const disclosureCompanies = [
   {
     name: "Kore.ai",
-    asset: "/images/company-logos/kore-ai.png",
-    fallback: "K",
+    asset: "/images/company-wordmarks/kore-ai.svg",
     href: "https://kore.ai",
   },
   {
-    name: "Eternal",
-    asset: "/images/company-logos/eternal.png",
-    fallback: "Eternal",
-    wordmark: true,
-    href: "https://eternal.com",
-  },
-  {
     name: "Licious",
-    asset: "/images/company-logos/licious.png",
-    fallback: "Licious",
-    wordmark: true,
+    asset: "/images/company-wordmarks/licious.png",
     href: "https://www.licious.in",
   },
   {
     name: "Snabbit",
     asset: "/images/company-logos/snabbit.png",
-    fallback: "S",
     href: "https://www.snabbit.com",
   },
   {
     name: "Lyzr.ai",
-    asset: "/images/company-logos/lyzr-ai.png",
-    fallback: "L",
+    asset: "/images/company-wordmarks/lyzr-ai.png",
     href: "https://www.lyzr.ai",
   },
   {
+    name: "Linkrunner",
+    asset: "/images/company-wordmarks/linkrunner.png",
+    href: "https://linkrunner.io",
+  },
+  {
     name: "Exterview AI",
-    asset: "/images/company-logos/exterview-ai.png",
-    fallback: "E",
+    asset: "/images/company-wordmarks/exterview-ai-transparent.png",
     href: "https://exterview.ai",
   },
   {
     name: "Virtusa",
     asset: "/images/company-logos/virtusa.png",
-    fallback: "V",
     href: "https://www.virtusa.com",
   },
   {
-    name: "Tata Sky",
-    asset: "/images/company-logos/tata-play.png",
-    fallback: "Tata Sky",
-    wordmark: true,
-    href: "https://www.tataplay.com",
+    name: "TGSRTC",
+    asset: "/images/company-wordmarks/tgsrtc-emblem-small.png",
+    href: "https://www.tgsrtcbus.in",
   },
   {
     name: "Airtel",
     asset: "/images/company-logos/airtel.png",
-    fallback: "airtel",
-    wordmark: true,
     href: "https://www.airtel.in",
   },
   {
     name: "MakeMyTrip",
     asset: "/images/company-logos/makemytrip.png",
-    fallback: "M",
     href: "https://www.makemytrip.com",
   },
   {
     name: "TurboHire",
     asset: "/images/company-logos/turbohire.png",
-    fallback: "T",
     href: "https://turbohire.co",
   },
   {
     name: "TartanHQ",
     asset: "/images/company-logos/tartanhq.png",
-    fallback: "T",
     href: "https://tartanhq.com",
   },
-  { name: "10+ startups", asset: "", fallback: "10+ startups", wordmark: true },
 ];
 const pocs = [
+  {
+    slug: "lyzr-ai",
+    image: "/images/company-logos/lyzr-ai.png",
+    logo: true,
+    comingSoon: false,
+    company: "Lyzr AI",
+    issue:
+      "A critical BOLA assessment showing how organization-wide API keys exposed agents, sessions, and AI supply-chain controls.",
+  },
   {
     slug: "licious-supply-chain-disclosure",
     image: "/images/poc-logos/licious-logo.png",
@@ -678,10 +670,10 @@ export default function Portfolio({
   const nav = [
     "Home",
     "Cyber",
+    "Learn",
     "Blog",
     "Playlists",
     "Movies",
-    "Learn",
     "Photography",
     "Socials",
     "Contact",
@@ -691,13 +683,13 @@ export default function Portfolio({
     { title: "Home", icon: <FaHouse />, onClick: () => jump("#home") },
     { title: "About", icon: <FaBookOpen />, onClick: () => jump("#about") },
     { title: "Cyber", icon: <FaShieldHalved />, onClick: () => jump("#cyber") },
-    { title: "Blog", icon: <FaBookOpen />, onClick: () => jump("#blog") },
-    { title: "Reviews", icon: <FaFilm />, onClick: () => jump("#movies") },
     {
       title: "Learn",
       icon: <FaGraduationCap />,
       onClick: () => jump("#learn"),
     },
+    { title: "Blog", icon: <FaBookOpen />, onClick: () => jump("#blog") },
+    { title: "Reviews", icon: <FaFilm />, onClick: () => jump("#movies") },
   ];
 
   return (
@@ -816,47 +808,66 @@ export default function Portfolio({
           </div>
           <div className="cyber-shelf-row poc-tilt-row">
             {pocs.map((poc) => (
-              <CardContainer
-                key={poc.slug}
-                containerClassName="poc-tilt-container"
-              >
-                <CardBody className="poc-tilt-card">
-                  <CardItem translateZ={100} className="poc-tilt-image">
+              <a className="poc-static-card" key={poc.slug} href={`/pocs/${poc.slug}`}>
+                <div className="poc-tilt-card">
+                  <div className="poc-tilt-image">
                     <img
                       className={poc.logo ? "poc-logo-image" : undefined}
                       src={poc.image}
                       alt={`${poc.company} logo`}
                     />
-                  </CardItem>
-                  <CardItem translateZ={65}>
+                  </div>
+                  <div>
                     <h3>{poc.company}</h3>
-                  </CardItem>
-                  <CardItem translateZ={50}>
+                  </div>
+                  <div>
                     <p>{poc.issue}</p>
-                  </CardItem>
-                  <CardItem translateZ={30} className="poc-read-action">
-                    {poc.comingSoon ? (
-                      <button className="stateful-button" disabled>
-                        Soon
-                      </button>
-                    ) : (
-                      <StatefulButton
-                        onAction={async () => {
-                          await new Promise((resolve) =>
-                            setTimeout(resolve, 180)
-                          );
-                          window.location.href = `/pocs/${poc.slug}`;
-                        }}
-                      >
-                        Read
-                      </StatefulButton>
-                    )}
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
+                  </div>
+                  <div className="poc-read-action">
+                    <span className="stateful-button">Read</span>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
           <p className="more-pocs-note">MORE POCs SOON</p>
+          <div className="cyber-shelf-heading poc-heading">
+            <div>
+              <h3>Hall of Fame</h3>
+            </div>
+          </div>
+          <div className="cyber-shelf-row poc-tilt-row hall-of-fame-row">
+            <a
+              className="poc-static-card"
+              href="https://linkrunner.io/security/hall-of-fame"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="poc-tilt-card">
+                <div className="poc-tilt-image hall-of-fame-mark">
+                  <img
+                    className="poc-logo-image"
+                    src="/images/company-wordmarks/linkrunner.png"
+                    alt="Linkrunner logo"
+                  />
+                </div>
+                <div>
+                  <h3>Linkrunner</h3>
+                </div>
+                <div>
+                  <p>Security Hall of Fame</p>
+                </div>
+                <div className="poc-read-action">
+                  <span className="stateful-button">View</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="cyber-shelf-heading poc-heading">
+            <div>
+              <h3>Broken Promises</h3>
+            </div>
+          </div>
           <a className="cyber-report-feature" href="/pocs/licious-disclosure-timeline">
             <span className="cyber-report-feature-kicker">DISCLOSURE TIMELINE · LICIOUS</span>
             <strong>They Called It Unreproducible. Then They Patched It.</strong>
@@ -864,45 +875,40 @@ export default function Portfolio({
             <span className="cyber-report-feature-action">Read the report <FaArrowRight /></span>
           </a>
           <p className="bug-bounty-caption">BUG BOUNTY / PATCHED FLAWS IN</p>
-          <div
-            className="disclosure-logo-cloud"
-            aria-label="Organizations where responsible reports were acknowledged"
+          <LogosCarousel
+            count={4}
+            className="disclosure-logo-carousel"
+            ariaLabel="Organizations where responsible reports were acknowledged"
           >
             {disclosureCompanies.map((company) => (
               <a
-                className={`disclosure-logo company-logo ${
-                  company.wordmark ? "company-wordmark" : ""
-                }`}
+                className="disclosure-logo company-logo"
                 key={company.name}
                 title={company.name}
                 href={company.href}
                 target={company.href ? "_blank" : undefined}
                 rel={company.href ? "noreferrer" : undefined}
               >
-                {company.asset && !company.wordmark ? (
-                  <img
-                    src={company.asset}
-                    alt={company.name}
-                    loading="lazy"
-                    onError={(event) => {
-                      event.currentTarget.style.display = "none";
-                      event.currentTarget.nextElementSibling?.classList.remove(
-                        "is-hidden"
-                      );
-                    }}
-                  />
-                ) : null}
-                <span
+                <img
                   className={
-                    company.asset && !company.wordmark ? "is-hidden" : ""
+                    company.name === "Lyzr.ai" ? "lyzr-black-logo" : undefined
                   }
-                  aria-hidden="true"
-                >
-                  {company.fallback}
+                  src={company.asset}
+                  alt={company.name}
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                    event.currentTarget.nextElementSibling?.classList.remove(
+                      "is-hidden"
+                    );
+                  }}
+                />
+                <span className="is-hidden" aria-hidden="true">
+                  {company.name}
                 </span>
               </a>
             ))}
-          </div>
+          </LogosCarousel>
         </section>
 
         <section id="blog" className="section-shell section-tint">
@@ -1255,6 +1261,15 @@ export default function Portfolio({
               <FaXTwitter /> @praneethreddy33
             </a>
           </div>
+          <Signature
+            text="Praneeth Reddy"
+            color="#171818"
+            fontSize={58}
+            duration={1.25}
+            delay={0.15}
+            inView
+            className="footer-signature"
+          />
         </section>
       </main>
       <footer>
