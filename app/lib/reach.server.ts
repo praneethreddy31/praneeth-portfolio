@@ -24,7 +24,7 @@ const STATIC_REACH_STATS: ReachStat[] = [
     id: "visits",
     label: "page visits",
     metricLabel: "Page visits",
-    tooltip: "My previous portfolio already had 150,000 visits, so I carried that history over here.",
+    tooltip: "Visitors counted by this portfolio's live counter.",
     numericValue: PAGE_VIEW_BASELINE,
     value: "150K+",
     live: false,
@@ -49,7 +49,7 @@ export async function getReachStats() {
     return {
       ...stat,
       live: pageViews.live,
-      tooltip: "My previous portfolio already had 150,000 visits, so I carried that history over here.",
+      tooltip: "Visitors counted by this portfolio's live counter.",
       numericValue: pageViews.total,
       value: formatCompactCount(pageViews.total),
     };

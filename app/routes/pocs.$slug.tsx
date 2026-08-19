@@ -1,15 +1,19 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link, useParams } from "@remix-run/react";
 import { FaArrowLeft } from "react-icons/fa6";
+import { Fragment, type ReactNode } from "react";
 import liciousReport from "../content/licious_supply_chain_article.md?raw";
 import liciousTimelineReport from "../content/licious_disclosure_timeline.md?raw";
 import tgsrtcReport from "../content/tgsrtc_booking_portal_report.md?raw";
+import lyzrReport from "../content/lyzr_ai_platform_security_report.md?raw";
 import { tgsrtcPaymentEvidence } from "../content/tgsrtc_evidence";
 import { tgsrtcConfigEvidence } from "../content/tgsrtc_config_evidence";
 
 const reportSlug = "licious-supply-chain-disclosure";
 const liciousTimelineSlug = "licious-disclosure-timeline";
 const tgsrtcSlug = "tgsrtc-booking-portal-disclosure";
+const lyzrSlug = "lyzr-ai";
+const legacyLyzrSlug = "lyzr-ai-platform-bola-disclosure";
 
 function formatInline(value: string) {
   const cleaned = value
@@ -35,13 +39,63 @@ function formatInline(value: string) {
 
 function MarkdownReport({ source }: { source: string }) {
   const lines = source.split("\n");
-  const blocks: React.ReactNode[] = [];
+  const blocks: ReactNode[] = [];
   let index = 0;
 
   while (index < lines.length) {
     const line = lines[index];
 
     if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    if (line === "[[LYZR_ATTACK_CHAIN]]") {
+      blocks.push(
+        <Fragment key="lyzr-attack-overview">
+          <figure className="report-evidence" key="lyzr-attack-chain">
+            <img
+              src="/images/pocs/lyzr-ai-attack-chain.jpg"
+              alt="Diagram of the Lyzr AI BOLA attack chain, from a free account to internal data access and agent tampering"
+              loading="eager"
+            />
+            <figcaption>
+              Simplified Lyzr.ai attack-chain overview. Sensitive names and identifiers are redacted in the supplied evidence.
+            </figcaption>
+          </figure>
+          <figure className="report-flowchart" key="lyzr-attack-flow">
+            <figcaption>How the Lyzr.ai authorization failure expands into a full compromise</figcaption>
+            <pre className="report-flowchart-code">{`ATTACKER (free account, one API key)
+    |
+    |--- READS inward (internal leaks)
+    |       |
+    |       +---> Shadow Agent sessions (Slack messages, DMs)
+    |       +---> Meeting recordings (client names, emails)
+    |       +---> Linear tickets (engineering plans)
+    |       +---> Revenue docs, GTM roadmap
+    |       +---> Stripe payment CSVs (card IDs, customer emails)
+    |       +---> Fundraising status
+    |
+    |--- WRITES outward (supply chain poison)
+            |
+            +---> Modify KPMG news agent (feed false intelligence)
+            +---> Modify NFL travel agent (leak corporate policies)
+            +---> Modify WTW finance agent (manipulate outputs)
+            +---> Modify any of 2,041 agents silently
+            +---> Reroute ALL LLM traffic via fallback config`}</pre>
+          </figure>
+          <section className="report-plain-summary" key="lyzr-plain-summary">
+            <span>In plain English</span>
+            <h2>What this could mean for ordinary people</h2>
+            <ul>
+              <li><strong>A free account could become a master key.</strong> Someone who should only see their own work could potentially reach company-wide material.</li>
+              <li><strong>Private business information could become readable.</strong> Messages, meeting notes, customer records, payment-related files, and plans could be exposed.</li>
+              <li><strong>Trusted AI assistants could be changed in secret.</strong> A customer might keep using the same assistant without knowing its answers or actions had been altered.</li>
+              <li><strong>The effect could spread beyond Lyzr.ai.</strong> Connected email, spreadsheet, calendar, and research tools may turn one platform problem into a wider business risk.</li>
+            </ul>
+          </section>
+        </Fragment>
+      );
       index += 1;
       continue;
     }
@@ -241,6 +295,8 @@ export const meta: MetaFunction = ({ params }) => [
           ? "They Called It Unreproducible — Praneeth Reddy"
         : params.slug === tgsrtcSlug
           ? "TGSRTC Booking Portal Disclosure — Praneeth Reddy"
+        : params.slug === lyzrSlug || params.slug === legacyLyzrSlug
+          ? "Lyzr.ai — Praneeth Reddy"
         : "POC not found — Praneeth Reddy",
   },
 ];
@@ -248,7 +304,9 @@ export const meta: MetaFunction = ({ params }) => [
 export default function PocDetail() {
   const { slug } = useParams();
 
-  if (slug !== reportSlug && slug !== liciousTimelineSlug && slug !== tgsrtcSlug) {
+  const isLyzrReport = slug === lyzrSlug || slug === legacyLyzrSlug;
+
+  if (slug !== reportSlug && slug !== liciousTimelineSlug && slug !== tgsrtcSlug && !isLyzrReport) {
     return (
       <main className="poc-page">
         <section className="poc-shell">
@@ -265,7 +323,32 @@ export default function PocDetail() {
     ? tgsrtcReport
     : slug === liciousTimelineSlug
       ? liciousTimelineReport
-      : liciousReport;
+    : isLyzrReport
+        ? lyzrReport
+          .replace(
+            "# How One API Key Broke an Entire AI Agent Platform: A BOLA Case Study",
+            "# The Key That Opened an Entire AI Agent Company: LYZR.AI"
+          )
+          .replace(
+            "**Author:** Praneeth Reddy\n**Published:** August 2026\n**Tags:** API Security, BOLA, OWASP Top 10, AI Security, Supply Chain Attack",
+            "**Target:** Lyzr.ai  **Date of Discovery:** June 10, 2026  **Date of Report:** August 2026  **Status:** Responsibly disclosed  **Severity:** Critical  **Author:** Praneeth Reddy"
+          )
+          .replace(
+            "During a security assessment of a production AI agent platform (details redacted)",
+            "During a security assessment of Lyzr.ai's production AI agent platform (details redacted)"
+          )
+          .replace("## Phase 1: Reconnaissance (Zero Authentication Required)", "[[LYZR_ATTACK_CHAIN]]\n\n## Phase 1: Reconnaissance of the Lyzr.ai API\n\nThe first step was simply understanding what Lyzr.ai had placed on the public internet. No account or special access was required to map the available API surface and learn how its resources were structured.")
+          .replace("## Phase 2: The Entry Point (BOLA on User Assets)", "## Phase 2: The Entry Point - BOLA on Lyzr.ai User Assets\n\nThis was the first broken boundary: a normal account could see uploaded assets that belonged to other people. That turned a routine file-listing feature into the starting point for wider access.")
+          .replace("## Phase 3: Full Enumeration", "## Phase 3: Lyzr.ai Organization-Wide Enumeration\n\nOnce the organization-level key was available, the platform treated it like a master key. The assessment could list and inspect agents, prompts, sessions, and configuration across user boundaries.")
+          .replace("## Phase 4: The Surveillance Agent", "## Phase 4: Lyzr.ai Internal Surveillance Agent\n\nThe impact was not limited to application settings. Internal communications had already been collected and organized by an AI agent, making sensitive company context easy to retrieve from session history.")
+          .replace("## Phase 5: The Supply Chain Attack", "## Phase 5: Supply-Chain Impact on Lyzr.ai Customers\n\nThe risk changed from reading data to changing what customers receive. An unauthorized prompt edit could quietly alter a trusted agent's answers, actions, or use of connected tools.")
+          .replace("## Phase 6: Financial and Payment Data", "## Phase 6: Lyzr.ai Financial and Payment Data\n\nThe accessible assets also included business and payment-related material. This shows why an AI platform must protect uploaded data with the same care as a finance or customer-data system.")
+          .replace("## Phase 7: Operational Intelligence", "## Phase 7: Lyzr.ai Operational Intelligence\n\nThe same access path exposed the company's operational picture: who was active, what agents cost, and whether unusual activity might be noticed. That information can make an incident harder to detect and contain.")
+          .replace("## Phase 8: OAuth and Integration Exposure", "## Phase 8: Lyzr.ai OAuth and Integration Exposure\n\nConnected services extend the impact beyond Lyzr.ai itself. If an attacker can invoke an agent with trusted integrations, the agent can become a bridge to email, spreadsheets, calendars, and other business systems.")
+          .replace("## The Remediation Gap", "## The Lyzr.ai Remediation Gap")
+          .replace("## Summary of Findings", "## Lyzr.ai Summary of Findings")
+          .replace("## Conclusion", "## Conclusion: Authorization at Lyzr.ai")
+        : liciousReport;
 
   return (
     <main className="poc-page">
@@ -278,6 +361,17 @@ export default function PocDetail() {
             <img
               src="/images/poc-logos/licious-logo.png"
               alt="Licious"
+              width="150"
+              height="55"
+              loading="eager"
+            />
+          </div>
+        )}
+        {isLyzrReport && (
+          <div className="poc-brand-mark" aria-label="Lyzr AI">
+            <img
+              src="/images/company-logos/lyzr-ai.png"
+              alt="Lyzr AI"
               width="150"
               height="55"
               loading="eager"

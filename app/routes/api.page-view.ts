@@ -1,5 +1,5 @@
 import { json, type ActionFunctionArgs } from "@remix-run/node";
-import { incrementPageView } from "../lib/page-views.server";
+import { getPageViewTotal, incrementPageView } from "../lib/page-views.server";
 
 export async function action({ request }: ActionFunctionArgs) {
   if (request.method.toUpperCase() !== "POST") {
@@ -16,17 +16,17 @@ export async function action({ request }: ActionFunctionArgs) {
   const pageView = await incrementPageView(url.searchParams.get("source"));
 
   return json({
+    live: pageView.live,
     source: pageView.source,
     total: pageView.total,
   });
 }
 
-export function loader() {
+export async function loader() {
+  const pageView = await getPageViewTotal();
+
   return json(
-    { error: "Method not allowed" },
-    {
-      headers: { Allow: "POST" },
-      status: 405,
-    },
+    { live: pageView.live, total: pageView.total },
+    { headers: { "Cache-Control": "private, no-store" } },
   );
 }
