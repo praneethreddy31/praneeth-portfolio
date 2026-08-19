@@ -78,9 +78,9 @@ function MarkdownReport({ source }: { source: string }) {
     |
     |--- WRITES outward (supply chain poison)
             |
-            +---> Modify KPMG news agent (feed false intelligence)
-            +---> Modify NFL travel agent (leak corporate policies)
-            +---> Modify WTW finance agent (manipulate outputs)
+            +---> Modify Company X news agent (feed false intelligence)
+            +---> Modify Company Y travel agent (leak corporate policies)
+            +---> Modify Company Z finance agent (manipulate outputs)
             +---> Modify any of 2,041 agents silently
             +---> Reroute ALL LLM traffic via fallback config`}</pre>
           </figure>
