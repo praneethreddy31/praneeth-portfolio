@@ -5,7 +5,7 @@ import { Fragment, type ReactNode } from "react";
 import liciousReport from "../content/licious_supply_chain_article.md?raw";
 import liciousTimelineReport from "../content/licious_disclosure_timeline.md?raw";
 import tgsrtcReport from "../content/tgsrtc_booking_portal_report.md?raw";
-import lyzrReport from "../content/lyzr_ai_platform_security_report.md?raw";
+import lyzrReport from "../content/lyzr_ai_platform_poc_full.md?raw";
 import { tgsrtcPaymentEvidence } from "../content/tgsrtc_evidence";
 import { tgsrtcConfigEvidence } from "../content/tgsrtc_config_evidence";
 
