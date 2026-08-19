@@ -706,13 +706,12 @@ Every finding except #10 traces back to the same root cause: the platform authen
 
 ## Conclusion
 
-AI agent platforms are the next frontier for API security failures. They aggregate sensitive data (conversations, credentials, business logic) and provide programmatic access to it through APIs. When those APIs lack authorization, the blast radius is enormous.
+AI agent platforms are the next frontier for API security failures. They aggregate sensitive data (conversations, credentials, business logic) and provide programmatic access to it through APIs. When those APIs lack authorization, the blast radius can be enormous.
 
-This was not a complex exploit. There was no authentication bypass, no injection, no cryptographic weakness. The API simply did not check whether the user making the request had permission to access the requested resource. The same class of vulnerability that has been documented for over a decade in REST APIs now threatens the AI agent ecosystem, with significantly higher stakes because agents carry system prompts (intellectual property), conversation histories (user data), connected tools (lateral movement), and enterprise client configurations (supply chain risk).
+This was not a complex exploit. There was no authentication bypass, no injection, and no cryptographic weakness. The API did not check whether the user making a request had permission to access the requested resource. The same class of vulnerability documented for over a decade in REST APIs can carry higher stakes in the AI-agent ecosystem because agents may handle system prompts, conversation histories, connected tools, and enterprise client configurations.
 
-One missing `if` statement. 2,041 agents compromised. 36 days unfixed.
+The findings were responsibly disclosed to Lyzr.ai and have since been fixed. This report is retained as a sanitized case study to help teams understand the importance of authorization controls in AI-agent platforms.
 
 ---
 
 *This post uses sanitized data throughout. No real credentials, company names, or personal information are included. The assessment was conducted in good faith and reported through responsible disclosure.*
-
