@@ -512,9 +512,19 @@ export default function Portfolio({
 }) {
   const [palette, setPalette] = useState(false);
   const [query, setQuery] = useState("");
+  const [juspayInviteOpen, setJuspayInviteOpen] = useState(false);
   const [activeScene, setActiveScene] = useState("about");
   const [dockScale, setDockScale] = useState(1);
   const progressRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!juspayInviteOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setJuspayInviteOpen(false);
+    };
+    addEventListener("keydown", closeOnEscape);
+    return () => removeEventListener("keydown", closeOnEscape);
+  }, [juspayInviteOpen]);
 
   useEffect(() => {
     let frame = 0;
@@ -831,6 +841,39 @@ export default function Portfolio({
             ))}
           </div>
           <p className="more-pocs-note">MORE POCs SOON</p>
+          <div className="cyber-shelf-heading poc-heading invite-heading">
+            <div>
+              <h3>INVITES</h3>
+            </div>
+          </div>
+          <div className="cyber-shelf-row poc-tilt-row invite-card-row">
+            <button
+              className="poc-static-card invite-card-trigger"
+              type="button"
+              onClick={() => setJuspayInviteOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={juspayInviteOpen}
+            >
+              <div className="poc-tilt-card">
+                <div className="poc-tilt-image juspay-invite-mark">
+                  <img
+                    src="/images/invites/juspay-logo.svg"
+                    alt="Juspay official logo"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3>Juspay</h3>
+                </div>
+                <div>
+                  <p>Hacking Event · Selected 30 out of 1000s+</p>
+                </div>
+                <div className="poc-read-action">
+                  <span className="stateful-button">View</span>
+                </div>
+              </div>
+            </button>
+          </div>
           <div className="cyber-shelf-heading poc-heading">
             <div>
               <h3>Hall of Fame</h3>
@@ -1206,7 +1249,7 @@ export default function Portfolio({
               </h3>
               <p className="x-bio">23 / farming / engineering +++</p>
               <div className="x-stats">
-                Followers <b>1.6K+</b> <i /> Following <b>1.3K+</b>
+                Followers <b>2.5K</b> <i /> Following <b>1.3K+</b>
               </div>
             </div>
             <a
@@ -1313,6 +1356,56 @@ export default function Portfolio({
             ))}
             <small>ESC TO CLOSE · ⌘ K TO OPEN</small>
           </div>
+        </div>
+      )}
+      {juspayInviteOpen && (
+        <div
+          className="invite-modal-backdrop"
+          role="presentation"
+        >
+          <section
+            className="invite-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="juspay-invite-title"
+          >
+            <div className="invite-modal-topbar">
+              <button
+                type="button"
+                aria-label="Close Juspay invite"
+                onClick={() => setJuspayInviteOpen(false)}
+              >
+                Close ×
+              </button>
+            </div>
+            <div className="invite-modal-scroll">
+              <div className="invite-modal-copy">
+                <span>HACKING EVENT</span>
+                <h3 id="juspay-invite-title">A closer look at payments, security, and scale.</h3>
+                <p>
+                  Juspay invited me to its hacking event as one of 30 selected
+                  researchers from thousands of applicants. It was a chance to
+                  meet the team, explore the environment, and bring a security
+                  researcher’s curiosity to payment systems that operate at scale.
+                </p>
+                <strong>30 selected / 1000s+ applicants</strong>
+              </div>
+              <div className="invite-modal-gallery">
+                <img
+                  src="/images/invites/juspay-hacking-event-01.jpg"
+                  alt="Juspay program participation agreement beside a laptop"
+                />
+                <img
+                  src="/images/invites/juspay-hacking-event-02.jpg"
+                  alt="Juspay office sign"
+                />
+                <img
+                  src="/images/invites/juspay-hacking-event-03.jpg"
+                  alt="Juspay hacking event notebook, shirt, and stickers"
+                />
+              </div>
+            </div>
+          </section>
         </div>
       )}
     </div>
