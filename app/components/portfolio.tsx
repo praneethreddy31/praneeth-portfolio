@@ -139,6 +139,21 @@ const articles = [
     previewTag: "Security research",
   },
   {
+    kind: "ARTICLE",
+    source: "Hacktron",
+    title: "Hacking OpenAI",
+    date: "Read article",
+    tags: ["AI", "Security"],
+    href: "https://www.hacktron.ai/blog/hacking-openai",
+    excerpt:
+      "A security research write-up on finding and responsibly disclosing an issue involving OpenAI.",
+    media: "site",
+    previewBrand: "Hacktron",
+    previewDomain: "hacktron.ai",
+    previewHeadline: "Hacking OpenAI",
+    previewTag: "Security research",
+  },
+  {
     kind: "BLOG",
     source: "Archie Sengupta",
     title: "Writing on technology and systems",
